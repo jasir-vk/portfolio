@@ -22,21 +22,23 @@ export default function Experience() {
                   </li>
                 ))}
               </ul>
-              <div className="workflow" aria-label="Leave approval workflow stages">
-                <span className="workflow-label">leave approval workflow I built</span>
-                {job.workflow.map((step, i) => (
-                  <Fragment key={step}>
-                    {i > 0 && (
-                      <span className="workflow-arrow" aria-hidden="true">
-                        →
+              {job.workflow.length > 0 && (
+                <div className="workflow" aria-label="Leave approval workflow stages">
+                  <span className="workflow-label">leave approval workflow I built</span>
+                  {job.workflow.map((step, i) => (
+                    <Fragment key={step}>
+                      {i > 0 && (
+                        <span className="workflow-arrow" aria-hidden="true">
+                          →
+                        </span>
+                      )}
+                      <span className="workflow-chip" style={{ animationDelay: `${i * 1.2}s` }}>
+                        {step}
                       </span>
-                    )}
-                    <span className="workflow-chip" style={{ animationDelay: `${i * 1.2}s` }}>
-                      {step}
-                    </span>
-                  </Fragment>
-                ))}
-              </div>
+                    </Fragment>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         ))}

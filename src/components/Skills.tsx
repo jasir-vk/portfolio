@@ -11,6 +11,11 @@ import {
   SiPython,
   SiHtml5,
   SiGit,
+  SiMongodb,
+  SiPostgresql,
+  SiSupabase,
+  SiTailwindcss,
+  SiVercel,
 } from 'react-icons/si'
 import Section from './Section'
 import { skills } from '../data/profile'
@@ -26,6 +31,11 @@ const icons: Record<string, IconType> = {
   python: SiPython,
   html: SiHtml5,
   git: SiGit,
+  mongodb: SiMongodb,
+  postgresql: SiPostgresql,
+  supabase: SiSupabase,
+  tailwind: SiTailwindcss,
+  vercel: SiVercel,
 }
 
 export default function Skills() {

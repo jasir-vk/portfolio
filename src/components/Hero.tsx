@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
-import { FiMail } from 'react-icons/fi'
+import { FiMail, FiDownload } from 'react-icons/fi'
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa'
-import { profile } from '../data/profile'
+import { profile, stats } from '../data/profile'
 
 // Typing animation cycling through profile.rotatingRoles
 function useTypedRole(roles: readonly string[], enabled: boolean) {
@@ -89,6 +89,11 @@ export default function Hero() {
             <a href="#contact" className="btn btn-ghost">
               Get in Touch
             </a>
+            {profile.resumeUrl && (
+              <a href={profile.resumeUrl} download className="btn btn-ghost">
+                <FiDownload /> Download CV
+              </a>
+            )}
           </div>
 
           <div className="hero-socials">
@@ -101,6 +106,15 @@ export default function Hero() {
             <a className="social-link" href={`mailto:${profile.email}`} aria-label="Email">
               <FiMail />
             </a>
+          </div>
+
+          <div className="stats-band">
+            {stats.map((s) => (
+              <div className="stat" key={s.label}>
+                <span className="stat-value">{s.value}</span>
+                <span className="stat-label">{s.label}</span>
+              </div>
+            ))}
           </div>
         </motion.div>
       </div>

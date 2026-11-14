@@ -1,3 +1,4 @@
+import { LuAward, LuGraduationCap } from 'react-icons/lu'
 import Section from './Section'
 import { profile } from '../data/profile'
 
@@ -13,22 +14,26 @@ export default function About() {
         <div className="card edu-card">
           <div className="edu-item">
             <span className="edu-icon" aria-hidden="true">
-              🎓
+              <LuGraduationCap />
             </span>
             <div>
               <h3>{profile.education.degree}</h3>
               <p className="edu-meta">{profile.education.period}</p>
             </div>
           </div>
-          <div className="edu-item">
-            <span className="edu-icon" aria-hidden="true">
-              🐍
-            </span>
-            <div>
-              <h3>Python Course</h3>
-              <p className="edu-sub">{profile.education.extra}</p>
+          {profile.certifications.map((cert) => (
+            <div className="edu-item" key={cert.name}>
+              <span className="edu-icon" aria-hidden="true">
+                <LuAward />
+              </span>
+              <div>
+                <h3>{cert.name}</h3>
+                <p className="edu-sub">
+                  {cert.issuer} · {cert.period}
+                </p>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </Section>
